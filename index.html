@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Massylia Mahdi — Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #f5f5f5;
+      --card-bg: #ffffff;
+      --text: #222222;
+      --muted: #777777;
+      --accent: #474c7c;
+      --border: #e0e0e0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+                   "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto 60px auto;
+      padding: 0 20px;
+    }
+
+    header {
+      padding: 70px 0 40px 0;
+      text-align: left;
+    }
+
+    header h1 {
+      font-size: 40px;
+      margin: 0 0 8px 0;
+      letter-spacing: 0.04em;
+    }
+
+    header h2 {
+      font-size: 18px;
+      font-weight: 400;
+      margin: 0 0 4px 0;
+      color: var(--muted);
+    }
+
+    header p {
+      margin: 4px 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .contact-links {
+      margin-top: 18px;
+      font-size: 14px;
+    }
+
+    .contact-links a {
+      color: var(--accent);
+      text-decoration: none;
+      margin-right: 18px;
+    }
+
+    .contact-links a:hover {
+      text-decoration: underline;
+    }
+
+    .section {
+      margin-top: 35px;
+    }
+
+    .section-title {
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      padding: 18px 20px;
+      margin-bottom: 14px;
+    }
+
+    .card-header-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 4px;
+    }
+
+    .card-title {
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .card-meta {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .subtle {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    ul {
+      padding-left: 18px;
+      margin: 8px 0 0 0;
+      font-size: 14px;
+    }
+
+    li {
+      margin-bottom: 4px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .pill {
+      font-size: 12px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #ececf5;
+      color: #404260;
+      border: 1px solid #dedff2;
+      white-space: nowrap;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      padding: 20px 0 10px 0;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding-top: 50px;
+      }
+      header h1 {
+        font-size: 32px;
+      }
+      .card-header-line {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- HERO / HEADER -->
+    <header>
+      <h1>Massylia Mahdi</h1>
+      <h2>Computer Engineering Student</h2>
+      <p>University of Ottawa · Kanata, ON</p>
+      <p class="subtle">Software · Networking · IoT · FPGA · Systems</p>
+
+      <div class="contact-links">
+        <a href="mailto:massylia.mahdi04@gmail.com">massylia.mahdi04@gmail.com</a>
+        <a href="https://www.linkedin.com/in/massylia-mahdi-a17b68263" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+    </header>
+
+    <!-- ABOUT -->
+    <section class="section">
+      <div class="section-title">About</div>
+      <div class="card">
+        <p>
+          I am a 4<sup>th</sup>-year Computer Engineering student with a strong interest in
+          software development, computer networks (CCNA in progress), IoT, FPGA/VHDL, 
+          and embedded systems.
+        </p>
+        <p>
+          I enjoy building end-to-end solutions that connect hardware and software:
+          from mobile applications and networked systems to custom UART modules and
+          pipelined RISC processors on FPGAs.
+        </p>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section">
+      <div class="section-title">Skills</div>
+
+      <div class="card">
+        <div class="card-title">Technical</div>
+        <div class="pill-row">
+          <span class="pill">Python</span>
+          <span class="pill">Java</span>
+          <span class="pill">C</span>
+          <span class="pill">C++</span>
+          <span class="pill">JavaScript</span>
+          <span class="pill">TypeScript</span>
+          <span class="pill">React</span>
+          <span class="pill">Firebase (Auth / Firestore)</span>
+          <span class="pill">SQLite</span>
+          <span class="pill">Android Studio</span>
+          <span class="pill">VHDL</span>
+          <span class="pill">FPGA (Quartus)</span>
+          <span class="pill">STM32</span>
+          <span class="pill">Linux</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Networking</div>
+        <p class="subtle">CCNA in progress</p>
+        <div class="pill-row">
+          <span class="pill">TCP/IP</span>
+          <span class="pill">VLANs</span>
+          <span class="pill">NAT</span>
+          <span class="pill">Routing & Switching</span>
+          <span class="pill">Network troubleshooting</span>
+          <span class="pill">Cisco Packet Tracer</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Other</div>
+        <div class="pill-row">
+          <span class="pill">GitHub</span>
+          <span class="pill">Jira</span>
+          <span class="pill">VMware</span>
+          <span class="pill">Microsoft 365</span>
+          <span class="pill">Bilingual: English / French</span>
+          <span class="pill">Standard First Aid & CPR/AED C</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section">
+      <div class="section-title">Experience</div>
+
+      <div class="card">
+        <div class="card-header-line">
+          <div class="card-title">Junior IT Analyst (Co-op) · Shared Services Canada</div>
+          <div class="card-meta">Sept 2023 – Present</div>
+        </div>
+        <ul>
+          <li>Collaborated on the design and development of a modern SharePoint website.</li>
+          <li>Created clear and engaging content aligned with organizational goals.</li>
+          <li>Used Microsoft 365 Apps to streamline tasks and support project coordination.</li>
+          <li>Troubleshot technical and UI/UX issues to ensure a functional final product.</li>
+          <li>Organized and facilitated regular Microsoft Teams meetings with stakeholders.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header-line">
+          <div class="card-title">Service Representative · City of Ottawa</div>
+          <div class="card-meta">Sept 2023 – Present</div>
+        </div>
+        <ul>
+          <li>Processed registrations and payments for community programs.</li>
+          <li>Answered client questions and provided recommendations to improve satisfaction.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header-line">
+          <div class="card-title">Boutique & Tours Guide · Royal Canadian Mint</div>
+          <div class="card-meta">Summers 2023 & 2025</div>
+        </div>
+        <ul>
+          <li>Delivered bilingual tours explaining coin production and numismatic history.</li>
+          <li>Promoted and sold Mint products while maintaining high visitor satisfaction.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section">
+      <div class="section-title">Selected Projects</div>
+
+      <div class="card">
+        <div class="card-header-line">
+          <div class="card-title">MediTrack — Automatic Pill Dispenser (Capstone)</div>
+          <div class="card-meta">Fall 2025 – Present</div>
+        </div>
+        <p>
+          Smart medication dispenser combining hardware (Raspberry Pi, ESP32, sensors,
+          NFC/BLE bracelet, stepper motor) with a software stack (React-based interface,
+          Firebase Authentication and Firestore).
+        </p>
+        <ul>
+          <li>Designed medication reminders, refill alerts, and caregiver notifications.</li>
+          <li>Implemented secure multi-role access (Patient, Doctor, Admin) via Firebase Auth.</li>
+          <li>Used Firestore for real-time medication schedules and intake logs.</li>
+          <li>Applied Agile (Scrum), Trello, Gantt charts, and GitHub-based CI/CD workflows.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header-line">
+          <div class="card-title">On-Demand Custom PC Service (Mobile App)</div>
+          <div class="card-meta">Fall 2024</div>
+        </div>
+        <p>
+          Android application (Java) supporting role-based access (Admin, Storekeeper, Assembler,
+          Requester) and inventory management for hardware and software components.
+        </p>
+        <ul>
+          <li>Implemented authentication and role management with SQLite-backed storage.</li>
+          <li>Built dashboards to visualize demand and user activity using database queries.</li>
+          <li>Improved UX with animations (splash screen, transitions) and clear flows.</li>
+          <li>Modelled the system using UML class, activity, and sequence diagrams.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header-line">
+          <div class="card-title">UART Communication System — FPGA/VHDL</div>
+          <div class="card-meta">Fall 2024</div>
+        </div>
+        <p>
+          Full UART implementation on an Altera DE2 FPGA board using VHDL: transmitter,
+          receiver, baud rate generator, and address decoder with synchronous timing.
+        </p>
+        <ul>
+          <li>Integrated the UART with a traffic light controller FSM for real-time debugging.</li>
+          <li>Performed functional and timing simulations in Quartus II.</li>
+          <li>Validated operation via loopback tests and PC serial terminal output.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header-line">
+          <div class="card-title">Pipelined RISC Processor — Advanced Computer Systems Design</div>
+          <div class="card-meta">Winter 2025</div>
+        </div>
+        <p>
+          5-stage pipelined RISC processor in VHDL with datapath, control unit, and pipeline
+          registers implemented on an Altera DE2 board.
+        </p>
+        <ul>
+          <li>Designed hazard detection and forwarding units for data and control hazards.</li>
+          <li>Simulated and verified timing and maximum clock frequency in Quartus II.</li>
+          <li>Executed benchmark programs with real-time instruction tracing.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section">
+      <div class="section-title">Education</div>
+      <div class="card">
+        <div class="card-header-line">
+          <div class="card-title">BASc in Computer Engineering · University of Ottawa</div>
+          <div class="card-meta">Sept 2022 – May 2026 (expected)</div>
+        </div>
+        <p class="subtle">Ottawa, ON</p>
+      </div>
+    </section>
+
+    <footer>
+      © 2025 · Massylia Mahdi
+    </footer>
+  </div>
+</body>
+</html>
