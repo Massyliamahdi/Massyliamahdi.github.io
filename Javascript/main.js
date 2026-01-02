@@ -1,70 +1,75 @@
-// Vitesse de rotation
-let deltaX = 0.0025;
-let deltaY = 0.0030;
+// Removed unused experimental variables
+let light, t
+let deltaX = 0.0025
+let deltaY = 0.0025
 
-// Caméra
-const camera = new THREE.PerspectiveCamera(
-  65,
-  window.innerWidth / window.innerHeight,
-  0.1,
-  1000
-);
-camera.position.set(0, 0, 5);
+// Camera
+let camera = new THREE.PerspectiveCamera
+	(65, window.innerWidth/window.innerHeight, 0.1, 1000)
+camera.position.set(0.0, 0.0, 5)
 
-// Scène
-const scene = new THREE.Scene();
-// Fond rose clair
-scene.background = new THREE.Color("#ffe5ec");
-
-// Renderer
-const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+// Scene and renderer
+let scene = new THREE.Scene()
+let renderer = new THREE.WebGLRenderer({antialias: true})
 renderer.setPixelRatio(window.devicePixelRatio);
-renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setSize(window.innerWidth, window.innerHeight)
+document.getElementById('landing').appendChild(renderer.domElement)
+onWindowResize();
 
-// IMPORTANT: on met le canvas dans #landing
-const landing = document.getElementById("landing");
-landing.appendChild(renderer.domElement);
 
-// Forme géométrique (plus jolie qu’un tétraèdre)
-const geometry = new THREE.IcosahedronGeometry(2.2, 0);
+// Light source
+light = new THREE.SpotLight(0xccddff, 13)
+light.position.set(0, 0, 5)
+scene.add(light)
 
-// Matériau wireframe (fil de fer)
-let hue = 320; // départ rose/violet
-const material = new THREE.MeshBasicMaterial({
-  wireframe: true,
-  color: new THREE.Color(`hsl(${hue}, 95%, 55%)`)
-});
+// Shape
+let geometry = new THREE.TetrahedronBufferGeometry(2,1)
+let hue = 220
+let material = new THREE.MeshPhysicalMaterial({
+	wireframe: true,
+	color: new THREE.Color(`hsl(${hue}, 65%, 70%)`)
+})
+t = new THREE.Mesh(geometry, material)
+scene.add(t)
+scene.background = new THREE.Color("rgb(10, 10, 10)")
 
-// Mesh
-const mesh = new THREE.Mesh(geometry, material);
-scene.add(mesh);
-
-// Animation
-function animate() {
-  requestAnimationFrame(animate);
-
-  mesh.rotation.x += deltaX;
-  mesh.rotation.y += deltaY;
-
-  // Couleurs contrastées qui changent
-  hue = (hue + 0.7) % 360;
-  const accent = `hsl(${hue}, 95%, 55%)`;
-  material.color = new THREE.Color(accent);
-
-  // Si tu veux, on synchronise aussi une variable CSS (optionnel)
-  document.documentElement.style.setProperty("--accent", accent);
-
-  renderer.render(scene, camera);
+let animate = function () {
+	requestAnimationFrame(animate)
+	t.rotation.y += deltaY
+	t.rotation.x += deltaX
+	camera.lookAt(t.position)
+	// more intense color cycle for the wireframe and sync to CSS accent
+	hue = (hue + 0.05) % 360
+	const accent = `hsl(${hue}, 85%, 80%)`
+	material.color = new THREE.Color(accent)
+	document.documentElement.style.setProperty('--accent', accent)
+	renderer.render(scene, camera)
 }
-animate();
 
-// Resize (important)
-window.addEventListener("resize", () => {
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
+// start animation loop
+animate()
 
-  // évite des barres blanches sur mobile
-  landing.style.width = window.innerWidth + "px";
-  landing.style.height = window.innerHeight + "px";
-});
+// Fallback for mobile devices with limited WebGL support
+if (!renderer.domElement) {
+	console.warn('WebGL not supported, using fallback');
+	document.getElementById('landing').style.background = 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)';
+}
+
+window.addEventListener('resize', onWindowResize, false)
+
+function onWindowResize() {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+    renderer.setSize(width, height);
+
+    // Ensure #landing div matches renderer size (fixes iOS landscape white bars)
+    const landing = document.getElementById('landing');
+    landing.style.width = width + 'px';
+    landing.style.height = height + 'px';
+}
+
+
+//
