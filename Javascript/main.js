@@ -13,7 +13,7 @@ camera.position.set(0.0, 0.0, 5);
 
 // Scene and renderer
 const scene = new THREE.Scene();
-scene.background = new THREE.Color("#ffe5ec"); // ✅ ton fond rose clair
+scene.background = new THREE.Color("#ffe5ec"); //  fond rose clair
 
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
 renderer.setPixelRatio(window.devicePixelRatio);
@@ -34,7 +34,7 @@ let hue = 305; // départ violet-rose
 
 const material = new THREE.MeshBasicMaterial({
   wireframe: true,
-  color: new THREE.Color(`hsl(${hue}, 90%, 55%)`)
+  color: new THREE.Color("#000000")
 });
 
 t = new THREE.Mesh(geometry, material);
