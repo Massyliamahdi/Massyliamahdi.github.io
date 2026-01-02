@@ -65,20 +65,26 @@ let animate = function () {
   renderer.render(scene, camera);
 };
 
-animate();
+animate()
 
-window.addEventListener("resize", onWindowResize, false);
+// Fallback for mobile devices with limited WebGL support
+if (!renderer.domElement) {
+	console.warn('WebGL not supported, using fallback');
+	document.getElementById('landing').style.background = 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)';
+}
+
+window.addEventListener('resize', onWindowResize, false)
 
 function onWindowResize() {
-  const width = window.innerWidth;
-  const height = window.innerHeight;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
 
-  camera.aspect = width / height;
-  camera.updateProjectionMatrix();
-  renderer.setSize(width, height);
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+    renderer.setSize(width, height);
 
-  // Fix taille du container
-  const landing = document.getElementById("landing");
-  landing.style.width = width + "px";
-  landing.style.height = height + "px";
+    // Ensure #landing div matches renderer size (fixes iOS landscape white bars)
+    const landing = document.getElementById('landing');
+    landing.style.width = width + 'px';
+    landing.style.height = height + 'px';
 }
