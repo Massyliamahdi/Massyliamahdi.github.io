@@ -41,7 +41,7 @@ html, body {
 
 /* Nom centré */
 #name{
-  color: var(--accent3);
+  color: "#96005D";
   position: absolute;
   top: 50%;
   left: 50%;
