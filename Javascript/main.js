@@ -56,11 +56,11 @@ let animate = function () {
   const wave = (Math.sin(Date.now() * 0.0012) + 1) / 2; // 0..1
   const h = minHue + (maxHue - minHue) * wave;
 
-  const accent = `hsl(${h}, 90%, 55%)`;
-  material.color = new THREE.Color(accent);
+  //const accent = `hsl(${h}, 90%, 55%)`;
+  //material.color = new THREE.Color(accent);
 
   // ✅ on synchronise ton CSS (bouton/hover etc.)
-  document.documentElement.style.setProperty("--accent", accent);
+ // document.documentElement.style.setProperty("--accent", accent);
 
   renderer.render(scene, camera);
 };
