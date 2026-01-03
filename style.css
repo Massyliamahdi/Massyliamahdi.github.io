@@ -10,7 +10,7 @@ html, body {
 /* Couleurs */
 :root{
   --bg: #ffe5ec;          /* rose clair */
-  --text: #2a2a2a;        /* texte foncé */
+  --text: #0a0a0a;        /* texte foncé */
   --accent: #ff2f92;      /* rose “pétant” */
   --accent2: #00c2ff;     /* bleu flash */
   --accent3: #7c3cff;     /* violet flash */
