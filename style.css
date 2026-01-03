@@ -41,50 +41,52 @@ html, body {
 
 /* Nom centré */
 #name {
-  color: var(--text);
   position: absolute;
   top: 50%;
   left: 50%;
-
-  transform: translateX(-50%) translateY(-100%); 
-  
-  text-align: center;
+  transform: translate(-50%, -100%);
   text-transform: uppercase;
-
-  font-family: 'Open Sans', sans-serif; 
-  font-size: 18px;      
-  font-weight: 300;
-  letter-spacing: 1.2em; 
-
-  text-shadow:
-    0 0 12px rgba(255, 0, 150, 1),
-    0 0 24px rgba(255, 0, 150, 0.95),
-    0 0 40px rgba(255, 0, 150, 0.85),
-    0 0 60px rgba(255, 0, 150, 0.7),
-    0 0 90px rgba(255, 0, 150, 0.55);
-
-  animation: nameGlow 6s ease-in-out infinite;
+  letter-spacing: 1.2em;
+  font-size: 20px;
+  font-weight: 400;
+  z-index: 100;
+  color: #2a2a2a;
 }
 
-@keyframes nameGlow {
+/* 🔥 NEON SOUS LE TEXTE */
+#name::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 360px;       /* largeur halo */
+  height: 110px;      /* hauteur halo */
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 0, 150, 0.55) 0%,
+    rgba(255, 0, 150, 0.35) 40%,
+    rgba(255, 0, 150, 0.08) 80%,
+    transparent 100%
+  );
+  filter: blur(35px); /* 🌸 douceur + diffusion */
+  z-index: -1;
+  opacity: 1;
+  animation: neonPulse 4s ease-in-out infinite;
+}
+
+/* 💖 Animation douce */
+@keyframes neonPulse {
   0%, 100% {
-    text-shadow:
-      0 0 20px rgba(255, 0, 150, 1),
-      0 0 40px rgba(255, 0, 150, 1),
-      0 0 70px rgba(255, 0, 150, 0.95),
-      0 0 120px rgba(255, 0, 150, 0.9),
-      0 0 180px rgba(255, 0, 150, 0.85);
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1);
   }
-
   50% {
-    text-shadow:
-      0 0 28px rgba(255, 40, 180, 1),
-      0 0 55px rgba(255, 40, 180, 1),
-      0 0 95px rgba(255, 40, 180, 0.95),
-      0 0 160px rgba(255, 40, 180, 0.9),
-      0 0 240px rgba(255, 40, 180, 0.85);
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.15);
   }
 }
+
 
 /* Réseaux sociaux sous le nom */
 #social{
