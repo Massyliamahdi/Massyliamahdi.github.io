@@ -31,10 +31,27 @@ const geometry = new THREE.TetrahedronGeometry(2, 1);
 // - rose = ~330°
 // - violet = ~270–290°
 let hue = 305; // départ violet-rose
+let light = new THREE.SpotLight(0xffffff, 12);
+light.position.set(0, 0, 5);
+scene.add(light);
 
-const material = new THREE.MeshBasicMaterial({
+let material = new THREE.MeshPhysicalMaterial({
+    wireframe: true,
+    color: new THREE.Color(`hsl(${hue}, 90%, 75%)`)
+});
+
+t = new THREE.Mesh(geometry, material);
+scene.add(t);
+
+// Lumière pour faire briller les arêtes
+let light = new THREE.SpotLight(0xffffff, 12);
+light.position.set(0, 0, 5);
+scene.add(light);
+
+// Matériau qui permet les couleurs animées
+let material = new THREE.MeshPhysicalMaterial({
   wireframe: true,
-  color: new THREE.Color("#000000")
+  color: new THREE.Color(`hsl(${hue}, 90%, 75%)`)
 });
 
 t = new THREE.Mesh(geometry, material);
@@ -49,12 +66,15 @@ let animate = function () {
 
   // ✅ Au lieu de faire 0..360 (arc-en-ciel),
   // on fait osciller entre 285 et 335 (violet -> rose)
-  const minHue = 285;
-  const maxHue = 335;
+// cycle rose → fuchsia → violet
+hue = (hue + 0.4) % 360;
+const accent = `hsl(${hue}, 90%, 75%)`;
 
-  // petite oscillation douce (va-et-vient)
-  const wave = (Math.sin(Date.now() * 0.0012) + 1) / 2; // 0..1
-  const h = minHue + (maxHue - minHue) * wave;
+material.color = new THREE.Color(accent);
+
+// si tu veux synchroniser ta couleur CSS
+document.documentElement.style.setProperty("--accent", accent);
+
 
   //const accent = `hsl(${h}, 90%, 55%)`;
   //material.color = new THREE.Color(accent);
