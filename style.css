@@ -80,7 +80,7 @@ html, body {
   z-index: -1;
 
   /* 🔥 donne l'effet “néon” sur fond clair */
-  mix-blend-mode: multiply;
+  mix-blend-mode: screen;
 
   animation: neonPulse 4s ease-in-out infinite;
 }
