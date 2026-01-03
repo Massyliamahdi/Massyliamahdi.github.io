@@ -40,7 +40,7 @@ html, body {
 }
 
 /* Nom centré */
-#name{
+#name {
   color: var(--text);
   position: absolute;
   top: 50%;
@@ -52,24 +52,27 @@ html, body {
   letter-spacing: 0.35em;
   text-transform: uppercase;
   font-size: 18px;
+
   text-shadow:
-    0 0 6px rgba(255,47,146,0.75),
-    0 0 14px rgba(255,47,146,0.45),
-    0 0 26px rgba(124,60,255,0.25);
+    0 0 8px rgba(255,182,193,0.6),
+    0 0 14px rgba(255,255,255,0.6),
+    0 0 26px rgba(200,160,255,0.2);
+
   animation: nameGlow 6s ease-in-out infinite;
 }
 
 @keyframes nameGlow {
   0%, 100% {
     text-shadow:
-      0 0 10px rgba(255,47,146,0.18),
-      0 0 18px rgba(0,194,255,0.10);
+      0 0 8px rgba(255,182,193,0.4),
+      0 0 14px rgba(255,255,255,0.3),
+      0 0 26px rgba(200,160,255,0.15);
   }
   50% {
     text-shadow:
-      0 0 15px rgba(255,255,255,0.4),
-      0 0 25px rgba(255,255,255,0.2),
-      0 0 35px rgba(255,255,255,0.1);
+      0 0 14px rgba(255,255,255,0.7),
+      0 0 22px rgba(255,182,193,0.6),
+      0 0 30px rgba(255,255,255,0.25);
   }
 }
 
