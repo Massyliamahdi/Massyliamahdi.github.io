@@ -146,11 +146,11 @@ html, body {
 
 /* Responsive */ 
 @media (max-width: 768px) {
-	#name { font-size: 16px; letter-spacing: 0.25em; } 
+	#name { font-size: 16px; letter-spacing: 0.8em; } 
 	#resume { font-size: 10px; letter-spacing: 0.25em; top: calc(50% + 145px); } 
 	#social a { width: 26px; padding: 0px 10px; } }
 
 @media (max-width: 480px) { 
-	#name { font-size: 14px; letter-spacing: 0.18em; } 
+	#name { font-size: 14px; letter-spacing: 0.6em; } 
 	#resume { font-size: 9px; letter-spacing: 0.18em; top: calc(50% + 130px); } 
 	#social a { width: 22px; padding: 0px 8px; } }
