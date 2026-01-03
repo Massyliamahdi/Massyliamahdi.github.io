@@ -48,30 +48,40 @@ html, body {
   text-transform: uppercase;
   letter-spacing: 1.2em;
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 500;
   z-index: 100;
   color: #2a2a2a;
+	  text-shadow:
+    0 0 2px rgba(255,255,255,0.60),
+    0 0 6px rgba(255,47,146,0.55),
+    0 0 14px rgba(255,47,146,0.45),
+    0 0 28px rgba(255,47,146,0.30);
 }
 
 /* 🔥 NEON SOUS LE TEXTE */
-#name::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 360px;       /* largeur halo */
-  height: 110px;      /* hauteur halo */
+#name::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:52%;
   transform: translate(-50%, -50%);
-  background: radial-gradient(
-    ellipse at center,
-    rgba(255, 0, 150, 0.55) 0%,
-    rgba(255, 0, 150, 0.35) 40%,
-    rgba(255, 0, 150, 0.08) 80%,
+  width: 420px;
+  height: 70px;
+
+  background: radial-gradient(ellipse at center,
+    rgba(255,47,146,0.70) 0%,
+    rgba(255,47,146,0.35) 45%,
+    rgba(255,47,146,0.10) 75%,
     transparent 100%
   );
-  filter: blur(35px); /* 🌸 douceur + diffusion */
+
+  filter: blur(18px) saturate(140%);
+  opacity: 0.95;
   z-index: -1;
-  opacity: 1;
+
+  /* 🔥 donne l'effet “néon” sur fond clair */
+  mix-blend-mode: multiply;
+
   animation: neonPulse 4s ease-in-out infinite;
 }
 
