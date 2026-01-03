@@ -35,7 +35,7 @@ scene.add(light);
 let hue = 305;
 const material = new THREE.MeshPhysicalMaterial({
   wireframe: true,
-  color: new THREE.Color(`hsl(${hue}, 90%, 75%)`)
+  color: new THREE.Color("white")
 });
 
 // Mesh
@@ -50,16 +50,16 @@ function animate() {
   t.rotation.x += deltaX;
   camera.lookAt(t.position);
 
-  // Change color over time (pink -> fuchsia -> violet)
-  hue = (hue + 0.4) % 360;
-  const accent = `hsl(${hue}, 90%, 75%)`;
-  material.color = new THREE.Color(accent);
+  // 🌟 LED blanc lumineux avec pulsation élégante
+  const pulse = (Math.sin(Date.now() * 0.002) + 1) / 2;
+  const lightness = 70 + pulse * 30; // 70% -> 95%
+  const accent = `hsl(0, 0%, ${lightness}%)`;
 
-  // Sync with CSS (optional)
-  document.documentElement.style.setProperty("--accent", accent);
+  material.color = new THREE.Color(accent);
 
   renderer.render(scene, camera);
 }
+
 animate();
 
 // Resize
